@@ -1,17 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+function HelloWorld() {
+  return(
+    <div><Hello/> </div>
+  );
+  // Other notation can include
+  // return <div>
+  // <Hello/> <World/>
+  // </div>;     -- as long as the opening div is on the same line as return & semi colon at the end.
+}
+
+function Hello() {
+  // const name = "Jane!";
+  // return (
+  // <span>Hello {name}</span>
+  // );
+  var isHello = false;
+  return (
+    <span>{isHello ? "Hello" : "Goodbye"}</span> // true = hello, false = goodbye
+    // OR <span>
+    // {isHello && 'Hello'}
+    // {!isHello && 'Goodbye'}
+    //</span>
+  );
+}
+
+// function World(){
+//   return <span>World</span>;
+// }
+
+// -- How it compiles out in Babel --
+// function Hello() {
+//   return React.create 
+//     'div',
+//     {}
+//     'Hello World!'
+//     );
+// }
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <HelloWorld/>, document.querySelector('#root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
